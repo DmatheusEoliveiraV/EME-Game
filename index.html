@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EME Game</title>
+</head>
+<body>
+    <script>
+       alert ("Bem-Vindo ao EME Game, lhe desejo sorte e que comece o game!");
+       
+        const player = {
+        name: "",
+        life: "",
+        power: ""
+       };
+
+       const skeleton = {
+        life: 1500 ,
+        power: 500
+       };
+
+       const bone = {
+        life: 1800 ,
+        power: 500
+       };
+
+// ** CRIAÇÃO DO JOGADOR ** //
+
+       player.name = prompt("Digite o nome do seu jogador: ");
+        
+        while (player.name == !player.name) {
+            alert ("É necessário atribuir um nome ao jogador");
+            player.name = prompt("Digite o nome do seu jogador: ");
+        };
+
+       player.life = +prompt("Atribua pontos de VIDA:");
+       player.power = +prompt("Atribua pontos de ATAQUE");
+        
+        while (player.life + player.power != 20) {
+            alert("Você só pode atribuir no máximo 20 pontos entre a VIDA e ATAQUE");;
+            player.life = +prompt("Atribua pontos de VIDA:");
+            player.power = +prompt("Atribua pontos de ATAQUE");
+        } ;
+
+        player.life = player.life * 100;
+        player.power = player.power *10;
+        alert("Parabéns, jogador criado com sucesso! " +player.name+ " possui " +player.life+ " pontos de VIDA e o seguinte pontos de ATAQUE: " +player.power);
+
+
+ // ** Primeira escolha ** //
+        
+        
+        alert("Então " +player.name+ ", já se passaram alguns dias desde que você se juntou à Guilda dos Aventureiros, e você estava se preparando para sua primeira incursão em uma masmorra! Após alguns dias de viagem, você chega à entrada da misteriosa masmorra. Você está cheio de expectativas enquanto se aproxima. A entrada da masmorra está diante de você, escura e ameaçadora. As parades de pedra são escorregadias de umidade, e ao cheira a mofo e decomposição.");
+        let choiceone = prompt("O que você quer fazer? Digite A) para entrar na caverna  B) para explorar").toUpperCase;   
+            if (choiceone == "B") {
+                let result = Math.random() < 0.5;
+                    if (result){
+                        alert ("Você decide explorar a área circundante, esperando encontrar pistas ou recursos valiosos que possam ajudá-lo em sua missão. Enquanto explora, nota algumas marcas entalhadas nas árvores próximas que lhe deixam curioso, você continua a busca e finalmente descobre algo: um frasco misterioso escondido entre as folhas caídas, ele contém uma substância brilhante de cor azul intensa. Intrigado, você examina mais de perto o frasco e percebe que se trata de uma poção mágica. A etiqueta, escrita em uma língua antiga, sugere que a poção tem propriedades de cura.");
+                        player.life = player.life + 500;
+                        alert ("O" +player.name+ " está com a hp de "+player.life);   
+                    } else {
+                alert ("Você decide explorar a área circundante. Após uma busca sem resultados na área, você se dirige à masmorra, aceitando a tranquilidade antes do desafio iminente. Embora sem descobertas notáveis, a expectativa cresce enquanto você se prepara para adentrar a dungeon.");
+                        }
+        } else if (choiceone == "A") {
+                alert("Ao entrar na masmorra, você percebe que as paredes estão cobertas por símbolos estranhos, emitindo uma luz fraca na penumbra. O ar dentro está impregnado com o cheiro forte de morte e decomposição, fazendo sua pele arrepiar. Você consegue ouvir os sons distantes de algo se movendo nas profundezas da masmorra, mas não consegue identificar exatamente o que é.");
+            };
+        
+
+// ** Segunda escolha ** //
+
+        let choicetwo = prompt("o que você quer fazer? A) Seguir caminhando /  B) Analisar o interior da caverna").toUpperCase;
+
+            if (choicetwo == "B"){
+                let choiceinsidetwob = prompt("Ao analisar o interior da caverna, você nota que o piso está repleto de ossos de animais, deixando o cheiro pútrido ainda mais evidente, você começa a observar as parades da caverna e encontra um objeto pendurado... o que você deseja fazer? A) Sair fora / B) Examinar").toUpperCase;
+                    if (choiceinsidetwob == "A") {
+                        alert("Ao sair fora,você tropeça em monte de ossos. O estrondo ecoa pelo ambiente e o  barulho rompeo silêncio,alertando aqueles que vivem nas profundezas da caverna...");
+                    } else if (choiceinsidetwob == "B"){
+                        alert("O objeto parece ser uma lanterna antiga, coberta de poeira e teias de aranha. Ao se aproximar para examiná-la, você percebe que ainda há vestígios de óleo dentro dela, e ao tocar nela você a derruba abruptamente com um estrondo alto, ecoando pelo ambiente. O barulho rompe o silêncio, deixando a equipe tensa e alerta, tentando prestar atenção ao que se espera adiante +PODER");
+                        player.power = player.power + 500;
+                        alert(player.name+" ganhou mais 500 pontos de ataque, indo para"+player.power);
+                    }
+            } else if (choicetwo == "A"){
+                let resulttwo = Math.random () < 0.5;
+                if (resulttwo){
+                    alert ("Ao seguir caminhando você tropeça...");
+                    player.life = player.life - 200;
+                    alert("Você perdeu 200 pontos de vida, portanto ficou com "+player.life);
+                } else {
+                alert ("Ao seguir caminhando pela caverna, o tempo passa e a sua equipe de aventureiros começa a ganhar confiança, a atenção vai se dispersando e quando notam, todos estão fazendo piadas em tom de voz descontraído. Tudo parece estar indo bem até que todos começam a ouvir um ruído arrepiante surgindo em meio as suas vozes, o clima alegre se dissipa repentinamente, todos ficam alertas e em silêncio, tentando observar o que os espera pela frente.");
+            }
+        };
+
+            alert("Ao olhar adiante, sua equipe depara-se com um grupo de esqueletos dispostos em uma formação ameaçadora. Suas figuras ósseas parecem animadas e prontas para o combate enquanto ficam próximas a um cristal que emite uma luz fraca. As órbitas vazias dos olhos focam em você com uma intesidade sinistra conforme você se aproxima cautelosamente, sentido a presença ameaçadora dos mortos-vivos.");
+
+
+// ** Terceira escolha ** //
+
+        let choicethree = prompt("o que você quer fazer? A) Lutar  B) Correr").toUpperCase;
+            if (choicethree == "A") {
+                alert ("Você irá enfrentar o exército de esqueletos com vida de "+skeleton.life+" e um ataque de "+skeleton.power);
+                    while (player.life <= 0 || skeleton.life <= 0 ){
+                        let battlechoice = +prompt ("Qual ataque que deseja usar? Digite 1-Ataque simples 2-Ataque combo 3-Ataque Especial");
+                            if (battlechoice == 1){
+                                skeleton.life = skeleton.life - player.power
+                                alert ("Você desferiu um ataque simples com sucesso! O Exército de esqueletos sofreu um dano de "+player.power+" e ainda restam os seguintes pontos de vida "+skeleton.life);
+                            } else if (battlechoice == 2){
+                                    let battleresult = Math.random () < 0.5;
+                                    if (battleresult){
+                                        skeleton.life = skeleton.life - (player.power * 1,5)
+                                        alert ("Você desferiu um ataque combo com sucesso! O Exército de esqueletos sofreu um dano de "+(player.power*1,5)+" e ainda restam os seguintes pontos de vida "+skeleton.life); 
+                                    } else {
+                                        alert ("Você desferiu um ataque combo sem sucesso, portanto O Exército de esqueletos não sofreu dano ficando com pontos de vida de  "+skeleton.life);
+                                    }
+                                } else if (battlechoice == 3){
+                                    let battleresulttwo = Math.random () < 0.5;
+                                    if (battleresulttwo){
+                                        skeleton.life = skeleton.life - (player.power * 2)
+                                        alert ("Você desferiu um ataque especial com sucesso! O Exército de esqueletos sofreu um dano de "+(player.power*2)+" e ainda restam os seguintes pontos de vida "+skeleton.life); 
+                                    } else {
+                                        alert ("Você desferiu um ataque especial sem sucesso, portanto O Exército de esqueletos não sofreu dano ficando com pontos de vida de  "+skeleton.life);
+                                    }
+                                }
+                    alert ("Agora o inimigo ataca");
+                        let enemyresult = Math.random () < 0.7;
+                                if (enemyresult){
+                                    player.life = player.life - skeleton.power;
+                                    alert("O exército de esqueletos usa ataque esquelético, você perdeu "+skeleton.power+ " de vida e está com o seguinte pontos de vida"+player.life);
+                                } else {
+                                    alert("O exército de esqueletos usa ataque esquelético, mas falhou. Você continua com "+player.life+" pontos de vida");
+                                }
+                    }
+            } else if (choicethree == "B"){
+                alert("Ao sair correndo você bate com a cabeça num pilar de pedra e perde a consciência...");
+                player.life == 0;
+            };
+
+        if (player.life >= 1){
+            player.life = player.life + 200;
+            player.power = player.power + 30;
+            alert ("Finalmente o Exército foi conquistado!Você ganhou mais 200 pontos de vida e 30 de ataque Uma sensação de paz invade cada centímetro da câmara... Num piscar de olhos voê está em uma planíce muito peculiar e ao mesmo tempo familiar também...você percebe que está diante de três portas...");
+            alert ("Seu ponto de vida é "+player.life+" e seu ataque de "+player.power);
+            alert ("o que quer fazer?");
+
+
+// ** Quarta escolha ** //
+        
+       let choicefour =  prompt ("A)Porta de Ouro B) Porta de Ferro C) Porta da casa dos seus pais").toUpperCase;
+            if (choicefour == "A"){
+                alert ("Você escolhe a porta de Ouro. Atrás dela você encontra muito ouro, cristais, etc... você comeca a imaginar toda a glória e poder que poderá obter com esse tesouro praticamente infinito. Assim que você toca a primeira moeda a seu alcanceuma voz grave e ecoante chama seu nome... Então você acha que é assim? Acha que seria fácil?... O MAGO PURO OSSO suege com uma aura de poder nunca antes vista...");
+                while (player.life <= 0 || bone.life <= 0 ){
+                        let battlechoicet = +prompt ("Qual ataque que deseja usar? Digite 1-Ataque simples 2-Ataque combo 3-Ataque Especial");
+                            if (battlechoicet == 1){
+                                bone.life = bone.life - player.power
+                                alert ("Você desferiu um ataque simples com sucesso! O MAGO PURO OSSO sofreu um dano de "+player.power+" e ainda restam os seguintes pontos de vida "+bone.life);
+                            } else if (battlechoicet == 2){
+                                    let battleresultt = Math.random () < 0.5;
+                                    if (battleresultt){
+                                        bone.life = bone.life - (player.power * 1,5)
+                                        alert ("Você desferiu um ataque combo com sucesso! O MAGO PURO OSSO sofreu um dano de "+(player.power*1,5)+" e ainda restam os seguintes pontos de vida "+bone.life); 
+                                    } else {
+                                        alert ("Você desferiu um ataque combo sem sucesso, portanto O MAGO PURO OSSO não sofreu dano ficando com pontos de vida de  "+bone.life);
+                                    }
+                                } else if (battlechoicet == 3){
+                                    let battleresulttwot = Math.random () < 0.5;
+                                    if (battleresulttwot){
+                                        bone.life = bone.life - (player.power * 2)
+                                        alert ("Você desferiu um ataque especial com sucesso! O MAGO PURO sofreu um dano de "+(player.power*2)+" e ainda restam os seguintes pontos de vida "+bone.life); 
+                                    } else {
+                                        alert ("Você desferiu um ataque especial sem sucesso, portanto O MAGO PURO OSSO não sofreu dano ficando com pontos de vida de  "+bone.life);
+                                    }
+                                }
+                    alert ("Agora o inimigo ataca");
+                        let enemyresultt = Math.random () < 0.7;
+                                if (enemyresultt){
+                                    player.life = player.life - bone.power;
+                                    alert("O MAGO PURO OSSO usa ataque ossada, você perdeu "+bone.power+ " de vida e está com o seguinte pontos de vida"+player.life);
+                                } else {
+                                    alert("O MAGO PURO OSSO usa ataque ossada, mas falhou. Você continua com "+player.life+" pontos de vida");
+                                }
+                    }
+            } else if (choicefour == "B"){
+                alert ("Você escolheu a porta de Ferro, após atrevessa-la tudo a sua volta desaparece, o infinito é o seu novo horizonte... alguns minutos se passam até que você consegue escutar alguém chamando por seu nome... Finalmente você conseguiu chegar até minha morada... Seus passos até aqui não foram fáceis, não espere nenhum tipo de alívio agora...");
+                while (player.life <= 0 || bone.life <= 0 ){
+                        let battlechoicetb = +prompt ("Qual ataque que deseja usar? Digite 1-Ataque simples 2-Ataque combo 3-Ataque Especial");
+                            if (battlechoicetb == 1){
+                                bone.life = bone.life - player.power
+                                alert ("Você desferiu um ataque simples com sucesso! O MAGO PURO OSSO sofreu um dano de "+player.power+" e ainda restam os seguintes pontos de vida "+bone.life);
+                            } else if (battlechoicetb == 2){
+                                    let battleresulttb = Math.random () < 0.5;
+                                    if (battleresulttb){
+                                        bone.life = bone.life - (player.power * 1,5)
+                                        alert ("Você desferiu um ataque combo com sucesso! O MAGO PURO OSSO sofreu um dano de "+(player.power*1,5)+" e ainda restam os seguintes pontos de vida "+bone.life); 
+                                    } else {
+                                        alert ("Você desferiu um ataque combo sem sucesso, portanto O MAGO PURO OSSO não sofreu dano ficando com pontos de vida de  "+bone.life);
+                                    }
+                                } else if (battlechoicetb == 3){
+                                    let battleresulttwotb = Math.random () < 0.5;
+                                    if (battleresulttwotb){
+                                        bone.life = bone.life - (player.power * 2)
+                                        alert ("Você desferiu um ataque especial com sucesso! O MAGO PURO sofreu um dano de "+(player.power*2)+" e ainda restam os seguintes pontos de vida "+bone.life); 
+                                    } else {
+                                        alert ("Você desferiu um ataque especial sem sucesso, portanto O MAGO PURO OSSO não sofreu dano ficando com pontos de vida de  "+bone.life);
+                                    }
+                                }
+                    alert ("Agora o inimigo ataca");
+                        let enemyresulttb = Math.random () < 0.7;
+                                if (enemyresulttb){
+                                    player.life = player.life - bone.power;
+                                    alert("O MAGO PURO OSSO usa ataque ossada, você perdeu "+bone.power+ " de vida e está com o seguinte pontos de vida"+player.life);
+                                } else {
+                                    alert("O MAGO PURO OSSO usa ataque ossada, mas falhou. Você continua com "+player.life+" pontos de vida");
+                                }
+                    }
+            } else if (choicefour == "C") {
+                alert ("Você escolhe a Porta da Casa dos seus Pais ao atravessa-la você se sente quente e cada vez mais pesado, estranhamente isso não o incomoda..");
+            }
+        
+        } else {
+            alert("Não foi desta vez que derretou o antigo exército de esqueletos... tudo fica escuro e quieto...");
+        }
+
+        if (bone.life >= 1){
+            alert ("Por quantos séculos mais o MAGO PURO OSSO reinará nas sobras de nosso vale? Tudo fica escuro e quieto... VOCÊ PERDEUUU!");
+        } else {
+            player.life += 8000;
+            alert("O MAGO PURO OSSO não mais nos assombrará! É hora de voltar a vila e comemorar com o povo... Você ganhou paz mundial de um ano e 8000 pontos de vida, ficando com " +player.life );
+        }
+    </script>
+</body>
+</html>
